@@ -9,8 +9,19 @@ for ch in sentence:
   else:
     print(ch.lower(), end='')
 print()
+
+start = 0
     
-answer = sentence.split(" ")
+for x in range(0, len(sentence)):
+  if sentence[x] == " ":
+    slices = slice(start, x)
+    answer.append(sentence[slices])
+    start = x+1
+
+slices = slice(start, len(sentence))
+answer.append(sentence[slices])
+print()
+
 for word in answer:
   if len(word) == 3:
     print(word)
